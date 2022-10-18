@@ -58,4 +58,16 @@ public class MQEntity {
     public void setGoodsNum(Integer goodsNum) {
         this.goodsNum = goodsNum;
     }
+
+    @Override
+    public String toString() {
+        return "MQEntity{" +
+                "orderId=" + orderId +
+                ", couponId=" + couponId +
+                ", userId=" + userId +
+                ", userMoney=" + userMoney +
+                ", goodsId=" + goodsId +
+                ", goodsNum=" + goodsNum +
+                '}';
+    }
 }

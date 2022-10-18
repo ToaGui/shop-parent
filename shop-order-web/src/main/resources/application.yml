@@ -1,0 +1,19 @@
+server:
+  port: 18084
+spring:
+  application:
+    name: dubbo-pay-consumer
+#  datasource:
+#    name: shop
+#    url: jdbc:mysql://localhost:3306/shopdb?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+#    username: root
+#    password: 1qaz!QAZ
+  dubbo:
+    application:            #应用配置，用于配置当前应用信息，不管该应用是提供者还是消费者。
+      id: dubbo-pay-consumer
+      name: dubbo-pay-consumer
+    registry:                 #注册中心配置，用于配置连接注册中心相关信息。
+      address: zookeeper://192.168.0.125:2181;zookeeper://192.168.0.126:2181;zookeeper://192.168.0.127:2181
+#    protocol:     #协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受。
+#      name: dubbo
+#      port: 20882

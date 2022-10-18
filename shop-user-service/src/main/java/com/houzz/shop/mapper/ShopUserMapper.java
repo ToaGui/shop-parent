@@ -2,10 +2,13 @@ package com.houzz.shop.mapper;
 
 import com.houzz.shop.pojo.ShopUser;
 import com.houzz.shop.pojo.ShopUserExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Mapper
 public interface ShopUserMapper {
     int countByExample(ShopUserExample example);
 
