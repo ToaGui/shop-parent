@@ -1,0 +1,32 @@
+#server:
+#  port: 18082
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+
+spring:
+  application:
+    name: dubbo-goods-provider
+  datasource:
+    name: shop
+    url: jdbc:mysql://localhost:3306/shopdb?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    username: root
+    password: 1qaz!QAZ
+  dubbo:
+    application:
+      id: dubbo-goods-provider
+      name: dubbo-goods-provider
+    registry:
+      address: zookeeper://192.168.0.125:2181;zookeeper://192.168.0.126:2181;zookeeper://192.168.0.127:2181
+    server: true
+    protocol:
+      name: dubbo
+      port: 20881
+
+rocketmq:
+  name-server: 192.168.0.125:9876;192.168.0.126:9876;192.168.0.127:9876;192.168.0.128:9876
+  producer:
+    group:
