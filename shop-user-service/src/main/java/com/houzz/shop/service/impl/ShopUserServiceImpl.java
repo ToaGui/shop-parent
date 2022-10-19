@@ -26,6 +26,7 @@ public class ShopUserServiceImpl implements IUserService {
         if (userId==null){
             CastException.cast(ShopCode.SHOP_REQUEST_PARAMETER_VALID);
         }
+
         return userMapper.selectByPrimaryKey(userId);
     }
 
