@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="shop-pay-web:war">
+    <output-path>$PROJECT_DIR$/shop-pay-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>shop-pay-web</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="shop-pay-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="shop-pay-web:war exploded" />
+    </root>
+  </artifact>
+</component>
