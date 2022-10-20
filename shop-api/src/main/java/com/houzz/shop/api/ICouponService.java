@@ -12,10 +12,10 @@ public interface ICouponService {
 
     /**
      * 根据ID查询优惠券对象
-     * @param coupouId
+     * @param couponId
      * @return
      */
-    public ShopCoupon findOne(Long coupouId);
+    public ShopCoupon findOne(Long couponId);
 
     /**
      * 更细优惠券状态

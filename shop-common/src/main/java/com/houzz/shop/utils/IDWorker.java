@@ -1,5 +1,8 @@
 package com.houzz.shop.utils;
 
+import org.springframework.stereotype.Component;
+
+
 public class IDWorker {
 
     /**
@@ -32,6 +35,9 @@ public class IDWorker {
     private long machineId;     //机器标识
     private long sequence = 0L; //序列号
     private long lastStmp = -1L;//上一次时间戳
+
+    public IDWorker() {
+    }
 
     public IDWorker(long datacenterId, long machineId) {
         if (datacenterId > MAX_DATACENTER_NUM || datacenterId < 0) {

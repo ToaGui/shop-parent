@@ -2,16 +2,16 @@
 #  port: 18083
 spring:
   application:
-    name: dubbo-order-provider
+    name: dubbo-coupon-provider
   datasource:
-    name: shop
+    name: shopdb
     url: jdbc:mysql://localhost:3306/shopdb?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
     username: root
     password: 1qaz!QAZ
   dubbo:
     application:            #应用配置，用于配置当前应用信息，不管该应用是提供者还是消费者。
-      id: dubbo-order-provider
-      name: dubbo-order-provider
+      id: dubbo-coupon-provider
+      name: dubbo-coupon-provider
     registry:                 #注册中心配置，用于配置连接注册中心相关信息。
       address: zookeeper://192.168.0.125:2181;zookeeper://192.168.0.126:2181;zookeeper://192.168.0.127:2181
     server: true
@@ -21,8 +21,22 @@ spring:
 #    scan: com.dubboProvide.dubboProvide.service  #服务暴露与发现消费所在的package
 # mybatis配置
 mybatis:
-  mapper-locations: classpath:/com.xmy.mapper/*.xml
-  type-aliases-package: com.xmy.pojo
+  mapper-locations: classpath:/com.houzz.mapper/*.xml
+  type-aliases-package: com.houzz.pojo
+# rocketmq 配置
+rocketmq:
+  name-server: 192.168.0.125:9876;192.168.0.126:9876;192.168.0.127:9876;192.168.0.128:9876
+  producer:
+    group: orderProducerGroup
+    transaction:
+      group: transactiongroup
+    send-message-timeout: 50000
+  consumer:
+    groupName: group1
+    topic: TransactionTopic
+    tag: '*'
+    consumeThreadMin: 20
+    consumeThreadMax: 64
 # 自定义消息参数
 mq:
   order:
@@ -55,16 +69,3 @@ mq:
     topic: goodsNumTopic
     tag:
       reduce: reduce_goods_num
-  rocketmq:
-    name-server: 192.168.0.125:9876;192.168.0.126:9876;192.168.0.127:9876;192.168.0.128:9876
-    producer:
-      group: orderProducerGroup
-      transaction:
-        group: transactiongroup
-      send-message-timeout: 50000
-    consumer:
-      groupName: group1
-      topic: TransactionTopic
-      tag: '*'
-      consumeThreadMin: 20
-      consumeThreadMax: 64
